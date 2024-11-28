@@ -70,7 +70,6 @@ working_status = os.getenv("DEFALUT_TALKING", default = "true").lower() == "true
 app = Flask(__name__)
 chatgpt = ChatGPT()
 
-domain root
 @app.route('/')
 def home():
     return 'Hello, World!'
