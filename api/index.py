@@ -33,27 +33,30 @@ def callback():
     except Exception as e:
         app.logger.error(f"An error occurred: {e}")
         abort(500)
-    return '', 200
+    return 'OK'
 
 @line_handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     global working_status
     if event.message.type != "text":
-        return
+        return 'OK'
+
 
     if event.message.text == "說話":
         working_status = True
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="我可以說話囉，歡迎來跟我互動 ^_^ "))
-        return
+        return 'OK'
+
 
     if event.message.text == "閉嘴":
         working_status = False
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="好的，我乖乖閉嘴 > <，如果想要我繼續說話，請跟我說 「說話」 > <"))
-        return
+        return 'OK'
+
 
     if working_status:
         chatgpt.add_msg(f"HUMAN:{event.message.text}?\n")
