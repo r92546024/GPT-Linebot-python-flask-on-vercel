@@ -29,6 +29,10 @@ app = Flask(__name__)
 configuration = Configuration(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
+@app.route('/')
+def home():
+    return 'Hello, World!'
+    
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -68,9 +72,9 @@ def handle_message(event):
 # chatgpt = ChatGPT()
 
 # domain root
-@app.route('/')
-def home():
-    return 'Hello, World!'
+# @app.route('/')
+# def home():
+#     return 'Hello, World!'
 
 # @app.route("/webhook", methods=['POST'])
 # def callback():
