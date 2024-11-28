@@ -33,7 +33,7 @@ def callback():
     except Exception as e:
         app.logger.error(f"An error occurred: {e}")
         abort(500)
-    return 'OK'
+    return '', 200
 
 @line_handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
