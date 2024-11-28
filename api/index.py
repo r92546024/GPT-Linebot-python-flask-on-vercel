@@ -30,9 +30,10 @@ def callback():
         line_handler.handle(body, signature)
     except InvalidSignatureError:
         abort(400)
-    #return 'OK'
-    return 200
-
+    except Exception as e:
+        app.logger.error(f"An error occurred: {e}")
+        abort(500)
+    return 'OK'
 
 @line_handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
