@@ -1,24 +1,24 @@
 from flask import Flask, request, abort
-# from linebot import LineBotApi, WebhookHandler
-# from linebot.exceptions import InvalidSignatureError
-# from linebot.models import MessageEvent, TextMessage, TextSendMessage
-from linebot.v3 import (
-    WebhookHandler
-)
-from linebot.v3.exceptions import (
-    InvalidSignatureError
-)
-from linebot.v3.messaging import (
-    Configuration,
-    ApiClient,
-    MessagingApi,
-    ReplyMessageRequest,
-    TextMessage
-)
-from linebot.v3.webhooks import (
-    MessageEvent,
-    TextMessageContent
-)
+from linebot import LineBotApi, WebhookHandler
+from linebot.exceptions import InvalidSignatureError
+from linebot.models import MessageEvent, TextMessage, TextSendMessage
+# from linebot.v3 import (
+#     WebhookHandler
+# )
+# from linebot.v3.exceptions import (
+#     InvalidSignatureError
+# )
+# from linebot.v3.messaging import (
+#     Configuration,
+#     ApiClient,
+#     MessagingApi,
+#     ReplyMessageRequest,
+#     TextMessage
+# )
+# from linebot.v3.webhooks import (
+#     MessageEvent,
+#     TextMessageContent
+# )
 
 from api.chatgpt import ChatGPT
 import os
