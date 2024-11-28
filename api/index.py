@@ -21,9 +21,11 @@ from linebot.v3.webhooks import (
 )
 
 from api.chatgpt import ChatGPT
-
 import os
 
+
+
+app = Flask(__name__)
 configuration = Configuration(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
