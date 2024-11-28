@@ -73,7 +73,7 @@ chatgpt = ChatGPT()
 
 @app.route('/')
 def home():
-    return 'Hello, World!'
+    return 'Hello, World! ' + os.getenv("LINE_CHANNEL_ACCESS_TOKEN") + ' ' + os.getenv("LINE_CHANNEL_SECRET")
 
 @app.route("/webhook", methods=['POST'])
 def callback():
