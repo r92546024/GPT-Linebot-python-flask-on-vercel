@@ -67,10 +67,10 @@ def handle_message(event):
 # app = Flask(__name__)
 # chatgpt = ChatGPT()
 
-# # domain root
-# @app.route('/')
-# def home():
-#     return 'Hello, World!'
+# domain root
+@app.route('/')
+def home():
+    return 'Hello, World!'
 
 # @app.route("/webhook", methods=['POST'])
 # def callback():
