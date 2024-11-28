@@ -76,7 +76,7 @@ def home():
     return 'Hello, World! ' + os.getenv("LINE_CHANNEL_ACCESS_TOKEN") + ' ' + os.getenv("LINE_CHANNEL_SECRET")
 
 @app.route("/webhook", methods=['POST'])
-def callback():
+def webhook():
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
     # get request body as text
@@ -92,6 +92,15 @@ def callback():
         abort(500)
     return 'OK'
 
+@app.route("/callback", methods=['POST'])
+def callback():
+    body = request.get_data(as_text=True)
+    try:
+        body = json.loads(body)
+    except Exception as _:
+        pass
+    return 'OK'
+    
 @line_handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     global working_status
